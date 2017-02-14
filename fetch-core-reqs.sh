@@ -1,3 +1,6 @@
+# Make directories
+mkdir -p lib models
+
 # Liblinear
 wget -O ./lib/liblinear-java-1.95.jar http://www.bwaldvogel.de/liblinear-java/liblinear-java-1.95.jar
 
