@@ -1,0 +1,23 @@
+FROM openjdk:8-jre
+MAINTAINER Frankie Robertson <frankie@robertson.name>
+
+RUN apt-get update && apt-get install -y \
+    git \
+  && apt-get update \
+  && apt-get clean \
+  && rm -rf /var/lib/apt/lists/*
+
+RUN git clone https://github.com/microth/mateplus.git \
+  && cd mateplus
+
+COPY parse.sh fetch-core-reqs.sh /mateplus/scripts/
+RUN chmod +x /mateplus/scripts/*.sh
+
+RUN /mateplus/scripts/fetch-core-reqs.sh && \
+  rm /mateplus/scripts/fetch-core-reqs.sh
+
+CMD cd mateplus && \
+  tee in.txt && \
+  ./scripts/parse.sh in.txt && \
+  cat out.txt && \
+  rm in.txt out.txt
