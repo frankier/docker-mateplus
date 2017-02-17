@@ -1,0 +1,17 @@
+COPY parse-framenet.sh /mateplus/scripts/
+RUN chmod +x /mateplus/scripts/*.sh
+
+RUN cd mateplus && \
+  ./scripts/fetch-framat-reqs.sh && \
+  rm ./scripts/fetch-framat-reqs.sh
+
+# Install semaphor
+RUN wget http://www.cs.cmu.edu/~ark/SEMAFOR/SEMAFOR-2.1.tgz
+
+CMD cd semaphor-semantic-parser &&
+  
+  cd mateplus && \
+  tee in.txt && \
+  ./scripts/parse-framenet.sh in.txt && \
+  cat out.txt && \
+  rm in.txt out.txt
