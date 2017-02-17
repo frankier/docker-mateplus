@@ -1,3 +1,6 @@
+FROM frankierr/mateplus:base
+MAINTAINER Frankie Robertson <frankie@robertson.name>
+
 RUN git clone https://github.com/microth/PathLSTM.git
 
 COPY fetch-pathltsm-reqs.sh /PathLSTM/scripts/
