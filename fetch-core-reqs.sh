@@ -18,4 +18,4 @@ wget -O ./models/tagger-eng.model https://storage.googleapis.com/google-code-arc
 wget -O ./models/lemma-eng.model https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/mate-tools/CoNLL2009-ST-English-ALL.anna-3.3.lemmatizer.model
 
 # SRL model
-fetch-drive.sh 0B5aLxfs6OvZBUHRFOEcyLTMzWFE 'srl-EMNLP14+fs-eng.model'
+fetch-drive.sh 0B5aLxfs6OvZBUHRFOEcyLTMzWFE 'models/srl-EMNLP14+fs-eng.model'
