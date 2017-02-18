@@ -3,8 +3,8 @@ MAINTAINER Frankie Robertson <frankie@robertson.name>
 
 RUN git clone https://github.com/microth/PathLSTM.git
 
-COPY fetch-pathltsm-reqs.sh /PathLSTM/scripts/
-COPY parse-pathltsm.sh /PathLSTM/scripts/parse.sh
+COPY fetch-pathlstm-reqs.sh /PathLSTM/scripts/
+COPY parse-pathlstm.sh /PathLSTM/scripts/parse.sh
 RUN chmod +x /PathLSTM/scripts/*.sh
 
 RUN cd PathLSTM && \
