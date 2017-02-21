@@ -3,6 +3,6 @@ if [ -z $2 ]
 then
   OUTFILE=""
 else
-  OUTFILE="-o $2"
+  OUTFILE="-O $2"
 fi
 wget $OUTFILE --load-cookies cookies.txt "https://docs.google.com/uc?export=download&confirm=$CODE&id=$1"
