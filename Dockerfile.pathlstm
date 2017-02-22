@@ -1,5 +1,14 @@
-FROM frankierr/mateplus:base
+FROM maven:3-jdk-8
 MAINTAINER Frankie Robertson <frankie@robertson.name>
+
+RUN apt-get update && apt-get install -y \
+    git \
+  && apt-get update \
+  && apt-get clean \
+  && rm -rf /var/lib/apt/lists/*
+
+COPY fetch-drive.sh /usr/bin/
+RUN chmod +x /usr/bin/fetch-drive.sh
 
 RUN git clone https://github.com/microth/PathLSTM.git
 
@@ -11,8 +20,10 @@ RUN cd PathLSTM && \
   ./scripts/fetch-pathlstm-reqs.sh && \
   rm ./scripts/fetch-pathlstm-reqs.sh
 
+RUN cd PathLSTM && mvn build
+
 CMD cd PathLSTM && \
-  tee in.txt && \
+  cat - > in.txt && \
   ./scripts/parse.sh in.txt && \
   cat out.txt && \
   rm in.txt out.txt
