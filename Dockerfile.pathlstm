@@ -20,7 +20,7 @@ RUN cd PathLSTM && \
   ./scripts/fetch-pathlstm-reqs.sh && \
   rm ./scripts/fetch-pathlstm-reqs.sh
 
-RUN cd PathLSTM && mvn build
+RUN cd PathLSTM && mvn compile
 
 CMD cd PathLSTM && \
   cat - > in.txt && \
