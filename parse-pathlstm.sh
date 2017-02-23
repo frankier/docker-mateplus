@@ -15,5 +15,5 @@ STANFORD=lib/stanford-corenlp-3.7.0.jar
 JAVA=java
 
 # parse $1
-$JAVA -Xmx60g -cp lib/anna-3.3.jar:$STANFORD:target/classes/ se.lth.cs.srl.CompletePipeline eng -lemma $LEMMA_MODEL -parser $PARSER_MODEL -tagger $POS_MODEL -srl $SRL_MODEL $RERANKER $TOKENIZE -test $1
+$JAVA -Xmx24g -cp lib/anna-3.3.jar:$STANFORD:target/classes/ se.lth.cs.srl.CompletePipeline eng -lemma $LEMMA_MODEL -parser $PARSER_MODEL -tagger $POS_MODEL -srl $SRL_MODEL $RERANKER $TOKENIZE -test $1
 # note: make sure that the compiled class files (run "mvn compile") are located in target/classes/
