@@ -21,6 +21,6 @@ RUN cd mateplus && \
 
 CMD cd mateplus && \
   cat - > in.txt && \
-  ./scripts/parse.sh in.txt && \
+  ./scripts/parse.sh in.txt 1>&2 && \
   cat out.txt && \
   rm in.txt out.txt
